@@ -75,5 +75,5 @@ git clone https://gitlab.com/jaykishore96/playwright-adobe-analytics-testin.git
 
 #### GitLab Pipeline
 ```bash
-
+https://gitlab.com/jaykishore96/playwright-adobe-analytics-testin/-/jobs/4540976686
 ```
