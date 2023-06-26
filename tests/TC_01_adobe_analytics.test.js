@@ -16,8 +16,11 @@ Test Steps:
 import { test, expect } from '@playwright/test'
 import { mobileOverviewTab, mobileTab } from '../selectors/locators'
 import * as config from '../config'
+const userAgent =
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36";
 
 test.describe('Adobe Analytics Tracking Test', () => {
+	test.use({userAgent});
 	test("Capture Adobe Analytics 'b/ss' event on clicking the Mobile > Overview Tab.", async ({
 		page
 	}) => {
@@ -78,7 +81,8 @@ test.describe('Adobe Analytics Tracking Test', () => {
 			}
 		)
 		await page.goto('/')
-		await page.getByRole('button', { name: mobileTab }).click()
+		await page.waitForLoadState('domcontentloaded')
+		await page.locator(mobileTab).hover()
 		await page.locator(mobileOverviewTab).click()
 		expect(page.url()).toBe(config.mobileOverviewPageUrl)
 	})
