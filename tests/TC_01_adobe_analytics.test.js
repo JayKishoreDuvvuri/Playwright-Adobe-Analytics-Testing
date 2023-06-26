@@ -35,6 +35,7 @@ test.describe('Adobe Analytics Tracking Test', () => {
 					contentType: 'application/json',
 					headers: { 'access-control-allow-origin': '*' }
 				})
+				await page.waitForTimeout(config.timeout)
 				const formattedRequestBody = request.postData()
 				const formattedJsonRequestBody = JSON.stringify(formattedRequestBody)
 				console.log('Formatted Json Request Body is:', formattedJsonRequestBody)
