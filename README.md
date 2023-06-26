@@ -17,7 +17,7 @@ Adobe analytics events fired.
 Test Steps:
 1.	Log in to the APP
 2.	Hover to the Mobile tab and click on Overview option
-3.	Perform a GET request and get the responses from Mobile Tab URI's
+3.	Perform a route and fulfill requests of playwright
 4.	Verify the adobe events fired on clicking the Mobile > Overview tab
 5.	Assert the adobe events data
 */
