@@ -17,10 +17,10 @@ import { test, expect } from '@playwright/test'
 import { mobileOverviewTab, mobileTab } from '../selectors/locators'
 import * as config from '../config'
 const userAgent =
-  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36";
+	'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36'
 
 test.describe('Adobe Analytics Tracking Test', () => {
-	test.use({userAgent});
+	test.use({ userAgent })
 	test("Capture Adobe Analytics 'b/ss' event on clicking the Mobile > Overview Tab.", async ({
 		page
 	}) => {
@@ -29,19 +29,15 @@ test.describe('Adobe Analytics Tracking Test', () => {
 			async (route, request) => {
 				await request.allHeaders()
 				const requestUrl = request.url()
-				console.log('Request Url: ', requestUrl)
 				const response = await route.fetch()
-				console.log('Response Url: ', responseUrl)
 				await route.fulfill({
 					status: 200,
 					contentType: 'application/json',
 					headers: { 'access-control-allow-origin': '*' }
 				})
-				await page.waitForTimeout(config.timeout)
 				const formattedRequestBody = request.postData()
 				const formattedJsonRequestBody = JSON.stringify(formattedRequestBody)
 				console.log('Formatted Json Request Body is:', formattedJsonRequestBody)
-				await page.waitForTimeout(config.timeout)
 
 				expect(request.postData()).toContain('AQB', 1)
 				expect(request.postData()).toContain('AQE', 1)
@@ -71,6 +67,8 @@ test.describe('Adobe Analytics Tracking Test', () => {
 				const responseUrl = response.url()
 				console.log('Response Status is:', response.ok())
 				console.log('Response Status code is:', response.status())
+				console.log('Request Url: ', requestUrl)
+				console.log('Response Url: ', responseUrl)
 
 				expect(response.ok()).toBe(true)
 				expect(response.status()).toBe(200)

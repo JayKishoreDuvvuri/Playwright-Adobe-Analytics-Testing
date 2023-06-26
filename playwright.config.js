@@ -3,7 +3,7 @@ export default defineConfig({
 	testDir: 'tests',
 	timeout: 30000,
 	retries: 1,
-	reporter: [['junit', { outputFile: 'results.xml' }], ['list']],
+	reporter: [['junit', { outputFile: 'results.xml' }], ['line']],
 	projects: [
 		{
 			name: `Chrome`,
