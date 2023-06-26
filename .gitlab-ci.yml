@@ -7,4 +7,8 @@ tests:
   script:
     - npm install
     - npx playwright install chrome
+<<<<<<< HEAD
     - npm run test
+=======
+    - npm run test
+>>>>>>> e8e33837eb495dad5d6ef28f8f978adeb55f87a0
