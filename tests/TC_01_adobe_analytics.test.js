@@ -35,10 +35,9 @@ test.describe('Adobe Analytics Tracking Test', () => {
 					contentType: 'application/json',
 					headers: { 'access-control-allow-origin': '*' }
 				})
-		/*		const formattedRequestBody = request.postData()
+			    const formattedRequestBody = request.postData()
 				const formattedJsonRequestBody = JSON.stringify(formattedRequestBody)
 				console.log('Formatted Json Request Body is:', formattedJsonRequestBody)
-                await page.waitForTimeout(config.timeout)
 
 				expect(request.postData()).toContain('AQB', 1)
 				expect(request.postData()).toContain('AQE', 1)
@@ -63,7 +62,7 @@ test.describe('Adobe Analytics Tracking Test', () => {
 					'c50',
 					'8a8b8ba1-83f5-473d-a11d-434edbd82bb8'
 				)
-				expect(request.postData()).toContain('c55', 'resi|sales') */
+				expect(request.postData()).toContain('c55', 'resi|sales') 
 
 				const responseUrl = response.url()
 				console.log('Response Status is:', response.ok())
