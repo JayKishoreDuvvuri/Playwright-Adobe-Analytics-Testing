@@ -6,18 +6,17 @@ An example project demonstrating adome analytics test automation using playwrigh
 #### Test Cases
 
 ```bash
-#### Test Case 1: TC_01_adobe_analytics.test.js
-/* Scenario: 
-Capture adobe analytics tracking on clicking on Mobile > Overview tab
+#### Test Case: TC_01_adobe_analytics.test.js
+/* Scenario: Capture adobe analytics tracking on clicking on Mobile > Overview tab
 
 Scenario Description: 
-Log in to the app and navigate to Overview page. Click on Mobile > Overview and capture the 
+Navigate to Overview page. Click on Mobile > Overview and capture the 
 Adobe analytics events fired.
 
 Test Steps:
-1.	Log in to the APP
+1.	Navigate to https://www.xfinity.com/overview
 2.	Hover to the Mobile tab and click on Overview option
-3.	Perform a GET request and get the responses from Mobile Tab URI's
+3.	Perform playwright route and fulfill request and get the responses from Mobile Tab URI's
 4.	Verify the adobe events fired on clicking the Mobile > Overview tab
 5.	Assert the adobe events data and validate the Request Url and Response Url having 'b/ss' tag
 */
