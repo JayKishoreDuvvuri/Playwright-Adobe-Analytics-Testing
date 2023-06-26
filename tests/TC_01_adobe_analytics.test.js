@@ -31,7 +31,6 @@ test.describe('Adobe Analytics Tracking Test', () => {
 				const requestUrl = request.url()
 				console.log('Request Method is:', request.method())
 				const response = await route.fetch()
-				const result = await response.json()
 				await route.fulfill({
 					status: 200,
 					contentType: 'application/json',
@@ -67,7 +66,6 @@ test.describe('Adobe Analytics Tracking Test', () => {
 				)
 				expect(request.postData()).toContain('c55', 'resi|sales')
 
-				console.log(' Response Json: ', result)
 				const responseUrl = response.url()
 				console.log('Request Url: ', requestUrl)
 				console.log('Response Url: ', responseUrl)
