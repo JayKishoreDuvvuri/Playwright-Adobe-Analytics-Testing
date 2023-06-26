@@ -29,7 +29,9 @@ test.describe('Adobe Analytics Tracking Test', () => {
 			async (route, request) => {
 				await request.allHeaders()
 				const requestUrl = request.url()
+				console.log('Request Url: ', requestUrl)
 				const response = await route.fetch()
+				console.log('Response Url: ', responseUrl)
 				await route.fulfill({
 					status: 200,
 					contentType: 'application/json',
@@ -67,8 +69,6 @@ test.describe('Adobe Analytics Tracking Test', () => {
 				expect(request.postData()).toContain('c55', 'resi|sales')
 
 				const responseUrl = response.url()
-				console.log('Request Url: ', requestUrl)
-				console.log('Response Url: ', responseUrl)
 				console.log('Response Status is:', response.ok())
 				console.log('Response Status code is:', response.status())
 
