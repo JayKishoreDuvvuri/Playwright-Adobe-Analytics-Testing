@@ -78,7 +78,7 @@ test.describe('Adobe Analytics Tracking Test', () => {
 			}
 		)
 		await page.goto('/')
-		await page.hover(mobileTab)
+		await page.getByRole('button', { name: mobileTab }).click()
 		await page.locator(mobileOverviewTab).click()
 		expect(page.url()).toBe(config.mobileOverviewPageUrl)
 	})
