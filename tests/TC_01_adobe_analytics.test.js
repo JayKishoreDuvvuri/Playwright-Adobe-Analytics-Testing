@@ -38,7 +38,8 @@ test.describe('Adobe Analytics Tracking Test', () => {
 				const formattedRequestBody = request.postData()
 				const formattedJsonRequestBody = JSON.stringify(formattedRequestBody)
 				console.log('Formatted Json Request Body is:', formattedJsonRequestBody)
-
+                await page.waitForTimeout(config.timeout)
+				
 				expect(request.postData()).toContain('AQB', 1)
 				expect(request.postData()).toContain('AQE', 1)
 				expect(request.postData()).toContain('events', 'event125')
