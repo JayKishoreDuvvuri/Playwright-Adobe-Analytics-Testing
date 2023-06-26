@@ -29,17 +29,16 @@ test.describe('Adobe Analytics Tracking Test', () => {
 			async (route, request) => {
 				await request.allHeaders()
 				const requestUrl = request.url()
-				console.log('Request Method is:', request.method())
 				const response = await route.fetch()
 				await route.fulfill({
 					status: 200,
 					contentType: 'application/json',
 					headers: { 'access-control-allow-origin': '*' }
 				})
-				await page.waitForTimeout(config.timeout)
 				const formattedRequestBody = request.postData()
 				const formattedJsonRequestBody = JSON.stringify(formattedRequestBody)
 				console.log('Formatted Json Request Body is:', formattedJsonRequestBody)
+				await page.waitForTimeout(config.timeout)
 
 				expect(request.postData()).toContain('AQB', 1)
 				expect(request.postData()).toContain('AQE', 1)

@@ -4,7 +4,8 @@
 	"description": "Playwright with JavaScript for Reliability Testing",
 	"main": "index.js",
 	"scripts": {
-		"test": "npx playwright test --project=Chrome --reporter=html && npx playwright show-report"
+		"test:report": "npx playwright test --project=Chrome --reporter=html && npx playwright show-report",
+		"test": "npx playwright test --project=Chrome"
 	},
 	"keywords": [
 		"Plawright",
