@@ -70,7 +70,6 @@ npm run test
 #### GitLab Repo
 ```bash
 git clone https://gitlab.com/jaykishore96/playwright-adobe-analytics-testin.git
-git clone https://gitlab.com/jaykishore96/playwright-adobe-analytics-testin.git
 ```
 
 #### GitLab Pipeline
