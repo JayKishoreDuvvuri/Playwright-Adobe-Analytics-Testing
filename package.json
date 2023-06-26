@@ -1,7 +1,7 @@
 {
-	"name": "playwright-test-reliability",
+	"name": "playwright-adobe-analytics-testing",
 	"version": "1.0.0",
-	"description": "Playwright with JavaScript for Reliability Testing",
+	"description": "Playwright for Adobe Analytics Testing",
 	"main": "index.js",
 	"scripts": {
 		"test:report": "npx playwright test --project=Chrome --reporter=html && npx playwright show-report",
