@@ -64,7 +64,7 @@ npm run test - Runs test case on chrome browser
 
 ```bash
 Html-test-report :
-npm run test
+npm run test:report
 ```
 
 #### GitLab Repo
