@@ -6,9 +6,9 @@ Adobe analytics events fired.
 
 Test Steps:
 1.	Navigate to https://www.xfinity.com/overview
-2.	Hover to the Mobile tab and click on Overview option
+2.	User is on Landing page/Overview page
 3.	Perform playwright route and fulfill request and get the responses from Mobile Tab URI's
-4.	Verify the adobe events fired on clicking the Mobile > Overview tab
+4.	Verify the adobe events fired on clicking the Mobile > Overview tab (OR) Landing/Overview page
 5.	Assert the adobe events data and validate the Request Url and Response Url having 'b/ss' tag
 */
 
