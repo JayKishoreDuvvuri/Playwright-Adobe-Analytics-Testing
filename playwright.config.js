@@ -2,7 +2,7 @@ import { defineConfig } from '@playwright/test'
 export default defineConfig({
 	testDir: 'tests',
 	timeout: 30000,
-	retries: 1,
+	retries: 0,
 	reporter: [['junit', { outputFile: 'results.xml' }], ['line']],
 	projects: [
 		{
@@ -11,7 +11,7 @@ export default defineConfig({
 				baseURL: 'https://www.xfinity.com/overview',
 				browserName: `chromium`,
 				channel: `chrome`,
-				headless: true,
+				headless: false,
 				viewport: { width: 1720, height: 850 },
 				screenshot: `only-on-failure`,
 				video: `retain-on-failure`,

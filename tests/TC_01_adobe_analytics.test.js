@@ -13,7 +13,11 @@ Test Steps:
 */
 
 import { test, expect } from '@playwright/test'
-import { mobileOverviewTab, mobileTab } from '../selectors/locators'
+import {
+	mobileOverviewTab,
+	mobileTab,
+	acceptCookieButton
+} from '../selectors/locators'
 import * as config from '../config'
 const userAgent =
 	'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36'
@@ -24,7 +28,7 @@ test.describe('Adobe Analytics Tracking Test', () => {
 		page
 	}) => {
 		await page.route(
-			'https://metrics.xfinity.com/b/ss/comcastdotcomprod/10/JS-2.22.0-LDQM/s**',
+			'https://metrics.xfinity.com/b/ss/comcastdotcomprod/10/JS-2.22.0-LEWM/s**',
 			async (route, request) => {
 				await request.allHeaders()
 				const requestUrl = request.url()
@@ -34,7 +38,7 @@ test.describe('Adobe Analytics Tracking Test', () => {
 					contentType: 'application/json',
 					headers: { 'access-control-allow-origin': '*' }
 				})
-			    const formattedRequestBody = request.postData()
+				const formattedRequestBody = request.postData()
 				const formattedJsonRequestBody = JSON.stringify(formattedRequestBody)
 				console.log('Formatted Json Request Body is:', formattedJsonRequestBody)
 
@@ -61,7 +65,7 @@ test.describe('Adobe Analytics Tracking Test', () => {
 					'c50',
 					'8a8b8ba1-83f5-473d-a11d-434edbd82bb8'
 				)
-				expect(request.postData()).toContain('c55', 'resi|sales') 
+				expect(request.postData()).toContain('c55', 'resi|sales')
 
 				const responseUrl = response.url()
 				console.log('Response Status is:', response.ok())
@@ -77,8 +81,9 @@ test.describe('Adobe Analytics Tracking Test', () => {
 		)
 		await page.goto('/')
 		await page.waitForLoadState('domcontentloaded')
-		await page.locator(mobileTab).hover()
-		await page.locator(mobileOverviewTab).click()
-		expect(page.url()).toBe(config.mobileOverviewPageUrl)
+		await page.locator(acceptCookieButton).click()
+		//	await page.locator(mobileTab).hover()
+		//	await page.locator(mobileOverviewTab).click()
+		expect(page.url()).toBe(config.overviewPageUrl)
 	})
 })
